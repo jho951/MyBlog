@@ -12,6 +12,8 @@
 - 브라우저 콘솔 에러:
   - `Unexpected token` (inline script 문법 오류)
   - `Cannot read properties of null` (DOM selector 대상 누락)
+- 홈 `rp4` 카드 시각 확인:
+  - 카드 배경/테두리/그림자가 보이지 않고, 아이콘(`.rp4-icon`)만 3D 형태로 렌더링되는지 확인
 - 홈 최신글 렌더링:
   - `#ttLatestTrack .latest-slide`가 비어 있으면 `Recent Posts`에 fallback 문구가 표시되는지 확인
 - 링크 동작:

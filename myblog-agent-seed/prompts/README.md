@@ -6,3 +6,4 @@
 
 - `prompts/0-initial-setup.md`: 초기 분석 및 범위 확인용
 - `prompts/plans/001-home-landing-iteration.md`: 메인 홈 랜딩 개선 반복 작업용
+- `prompts/plans/002-theme-craft-visual-polish.md`: `theme-craft` 사용 시 홈 섹션 배경 정리/카드 입체감 조정 반복 작업용

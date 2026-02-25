@@ -104,12 +104,11 @@
         </nav>
       </div>
       <div class="header-expand-content" id="ttHeaderPanel" aria-hidden="true">
-        <div class="menu-list">
-          [##_category_list_##]
-        </div>
         <div class="menu-footer">
-          <a class="btn ghost full" href="https://develop-enchantment.tistory.com/guestbook">GuestBook</a>
-          <a class="btn ghost full" href="https://develop-enchantment.tistory.com/pages/about">About</a>
+          <a class="btn ghost full menu-footer-link" href="https://develop-enchantment.tistory.com/pages/about">About</a>
+          <a class="btn ghost full menu-footer-link" href="https://develop-enchantment.tistory.com/category">TechWrite</a>
+          <a class="btn ghost full menu-footer-link" href="https://develop-enchantment.tistory.com/guestbook">GuestBook</a>
+          <a class="btn ghost full menu-footer-link" href="https://github.com/jho951" target="_blank" rel="noopener">GitHub</a>
           <button class="btn secondary full btn_subscription #subscribe" data-blog-id="5465220" data-url="https://develop-enchantment.tistory.com" data-device="web_pc" data-tiara-copy="구독하기">구독하기</button>
           <div class="login-logout-button btn primary full">
             <div id="ttAuthStatus" style="display:none;">[##_login_out_status_##]</div>
@@ -375,108 +374,73 @@
         <!-- ===============================
                        Cat
         =============================== -->
-        <section class="catHub catHub--mobile mobile-only" aria-label="Categories (mobile tabs)">
+        <section class="catHub catHub--mobile mobile-only" aria-label="Categories (mobile/tablet stacked)">
           <aside class="section-intro">
             <h2 class="section-intro__title">일단 시작해보세요.</h2>
             <p class="section-intro__desc">어디서부터 볼지 막막하다면, 일단 읽어보세요.</p>
           </aside>
           <div class="catHubStage">
-            <!-- CSS-only tabs -->
-            <input class="catHubRadio" type="radio" name="catRoot" id="catTab-cs" checked>
-            <input class="catHubRadio" type="radio" name="catRoot" id="catTab-dev">
-            <input class="catHubRadio" type="radio" name="catRoot" id="catTab-eng">
-            <input class="catHubRadio" type="radio" name="catRoot" id="catTab-ts">
-
-            <!-- Mobile only -->
-            <div class="catTabsShell mobile-only" aria-label="Root categories tabs">
-              <div class="catTabsCapsule" role="tablist">
-                <button class="catTab" role="tab" aria-selected="true" data-tab="cs" type="button">
-                  <span class="catTabIcon" aria-hidden="true">⌁</span>
-                  <span class="catTabLabel">CS</span>
-                </button>
-
-                <button class="catTab" role="tab" aria-selected="false" data-tab="dev" type="button">
-                  <span class="catTabIcon" aria-hidden="true">&lt;/&gt;</span>
-                  <span class="catTabLabel">DV</span>
-                </button>
-
-                <button class="catTab" role="tab" aria-selected="false" data-tab="eng" type="button">
-                  <span class="catTabIcon" aria-hidden="true">□</span>
-                  <span class="catTabLabel">EN</span>
-                </button>
-
-                <button class="catTab" role="tab" aria-selected="false" data-tab="ts" type="button">
-                  <span class="catTabIcon" aria-hidden="true">!</span>
-                  <span class="catTabLabel">TS</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="catHubHeroWrap" aria-live="polite">
-              <a class="catHero catHero--cs" href="/category/computerscience">
-                <div class="catHeroInner">
-                  <p class="catHeroKicker">ROOT CATEGORY</p>
-                  <h2 class="catHeroTitle">ComputerScience</h2>
-                  <p class="catHeroDesc">Network · OS · Architecture · Algorithm · ComputerArchitecture</p>
-                  <span class="catHeroBtn">바로가기</span>
+            <div class="catHubFlow">
+              <article class="catHubGroup catHubGroup--cs">
+                <a class="catHero catHero--cs" href="/category/computerscience">
+                  <div class="catHeroInner">
+                    <p class="catHeroKicker">ROOT CATEGORY</p>
+                    <h2 class="catHeroTitle">Computer<wbr>Science</h2>
+                    <p class="catHeroDesc">DataStructure · Algorithm · Network · OS</p>
+                  </div>
+                </a>
+                <div class="catSubGrid catSubGrid--cs" aria-label="ComputerScience sub categories">
+                  <a class="catSubCard catSubCard--ds" href="/category/computerscience/datastructure"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DataStructure</span></div></a>
+                  <a class="catSubCard catSubCard--algo" href="/category/computerscience/algorithm"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Algorithm</span></div></a>
+                  <a class="catSubCard catSubCard--network" href="/category/computerscience/network"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Network</span></div></a>
+                  <a class="catSubCard catSubCard--os" href="/category/computerscience/os"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">OS</span></div></a>
                 </div>
-              </a>
+              </article>
 
-              <a class="catHero catHero--dev" href="/category/development">
-                <div class="catHeroInner">
-                  <p class="catHeroKicker">ROOT CATEGORY</p>
-                  <h2 class="catHeroTitle">Development</h2>
-                  <p class="catHeroDesc">Language · Framework · Infra · DataBase · Tool</p>
-                  <span class="catHeroBtn">바로가기</span>
+              <article class="catHubGroup catHubGroup--dev">
+                <a class="catHero catHero--dev" href="/category/development">
+                  <div class="catHeroInner">
+                    <p class="catHeroKicker">ROOT CATEGORY</p>
+                    <h2 class="catHeroTitle">Development</h2>
+                    <p class="catHeroDesc">Language · Framework · Infra · Database · Tool</p>
+                  </div>
+                </a>
+                <div class="catSubGrid catSubGrid--dev" aria-label="Development sub categories">
+                  <a class="catSubCard catSubCard--lang" href="/category/development/language"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Language</span></div></a>
+                  <a class="catSubCard catSubCard--framework" href="/category/development/framework"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Framework</span></div></a>
+                  <a class="catSubCard catSubCard--infra" href="/category/development/infra"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Infra</span></div></a>
+                  <a class="catSubCard catSubCard--db" href="/category/development/database"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Database</span></div></a>
+                  <a class="catSubCard catSubCard--tool" href="/category/development/tool"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Tool</span></div></a>
                 </div>
-              </a>
+              </article>
 
-              <a class="catHero catHero--eng" href="/category/enginnering">
-                <div class="catHeroInner">
-                  <p class="catHeroKicker">ROOT CATEGORY</p>
-                  <h2 class="catHeroTitle">Engineering</h2>
-                  <p class="catHeroDesc">DesignPattern · Test</p>
-                  <span class="catHeroBtn">바로가기</span>
+              <article class="catHubGroup catHubGroup--eng">
+                <a class="catHero catHero--eng" href="/category/enginnering">
+                  <div class="catHeroInner">
+                    <p class="catHeroKicker">ROOT CATEGORY</p>
+                    <h2 class="catHeroTitle">Engineering</h2>
+                    <p class="catHeroDesc">DesignPattern · Test</p>
+                  </div>
+                </a>
+                <div class="catSubGrid catSubGrid--eng" aria-label="Engineering sub categories">
+                  <a class="catSubCard catSubCard--dp" href="/category/enginnering/designpattern"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DesignPattern</span></div></a>
+                  <a class="catSubCard catSubCard--test" href="/category/enginnering/test"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Test</span></div></a>
                 </div>
-              </a>
+              </article>
 
-              <a class="catHero catHero--ts" href="/category/trubleshooting">
-                <div class="catHeroInner">
-                  <p class="catHeroKicker">ROOT CATEGORY</p>
-                  <h2 class="catHeroTitle">TroubleShooting</h2>
-                  <p class="catHeroDesc">Retrospective · Performance</p>
-                  <span class="catHeroBtn">바로가기</span>
+              <article class="catHubGroup catHubGroup--ts">
+                <a class="catHero catHero--ts" href="/category/trubleshooting">
+                  <div class="catHeroInner">
+                    <p class="catHeroKicker">ROOT CATEGORY</p>
+                    <h2 class="catHeroTitle">Trouble<wbr>Shooting</h2>
+                    <p class="catHeroDesc">Retrospective · Performance</p>
+                  </div>
+                </a>
+                <div class="catSubGrid catSubGrid--ts" aria-label="TroubleShooting sub categories">
+                  <a class="catSubCard catSubCard--retro" href="/category/trubleshooting/retrospective"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Retrospective</span></div></a>
+                  <a class="catSubCard catSubCard--perf" href="/category/trubleshooting/performance"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Performance</span></div></a>
                 </div>
-              </a>
-            </div>
-
-            <!-- SUB -->
-            <div class="catHubSubWrap">
-              <div class="catSubGrid catSubGrid--cs" aria-label="ComputerScience sub categories">
-                <a class="catSubCard catSubCard--network" href="/category/computerscience/network"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Network</span></div></a>
-                <a class="catSubCard catSubCard--os" href="/category/computerscience/os"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">OS</span></div></a>
-                <a class="catSubCard catSubCard--arch" href="/category/computerscience/architecture"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Architecture</span></div></a>
-                <a class="catSubCard catSubCard--algo" href="/category/computerscience/algorithm"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Algorithm</span></div></a>
-                <a class="catSubCard catSubCard--carch" href="/category/computerscience/computerarchitecture"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">ComputerArchitecture</span></div></a>
-              </div>
-
-              <div class="catSubGrid catSubGrid--dev" aria-label="Development sub categories">
-                <a class="catSubCard catSubCard--lang" href="/category/development/language"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Language</span></div></a>
-                <a class="catSubCard catSubCard--framework" href="/category/development/framework"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Framework</span></div></a>
-                <a class="catSubCard catSubCard--infra" href="/category/development/infra"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Infra</span></div></a>
-                <a class="catSubCard catSubCard--db" href="/category/development/database"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DataBase</span></div></a>
-                <a class="catSubCard catSubCard--tool" href="/category/development/tool"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Tool</span></div></a>
-              </div>
-
-              <div class="catSubGrid catSubGrid--eng" aria-label="Engineering sub categories">
-                <a class="catSubCard catSubCard--dp" href="/category/enginnering/designpattern"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DesignPattern</span></div></a>
-                <a class="catSubCard catSubCard--test" href="/category/enginnering/test"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Test</span></div></a>
-              </div>
-
-              <div class="catSubGrid catSubGrid--ts" aria-label="TroubleShooting sub categories">
-                <a class="catSubCard catSubCard--retro" href="/category/trubleshooting/retrospective"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Retrospective</span></div></a>
-                <a class="catSubCard catSubCard--perf" href="/category/trubleshooting/performance"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Performance</span></div></a>
-              </div>
+              </article>
             </div>
           </div>
         </section>
@@ -486,18 +450,10 @@
             <a class="catStackHero catStackHero--cs" href="/category/computerscience">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
-                <h2 class="catHeroTitle">ComputerScience</h2>
-                <p class="catHeroDesc">Network · OS · Architecture · Algorithm · ComputerArchitecture</p>
-                <span class="catHeroBtn">바로가기</span>
+                <h2 class="catHeroTitle">Computer<wbr>Science</h2>
+                <p class="catHeroDesc">DataStructure · Algorithm · Network · OS</p>
               </div>
             </a>
-            <div class="catStackSubs">
-              <a class="catSubCard catSubCard--network" href="/category/computerscience/network"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Network</span></div></a>
-              <a class="catSubCard catSubCard--os" href="/category/computerscience/os"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">OS</span></div></a>
-              <a class="catSubCard catSubCard--arch" href="/category/computerscience/architecture"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Architecture</span></div></a>
-              <a class="catSubCard catSubCard--algo" href="/category/computerscience/algorithm"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Algorithm</span></div></a>
-              <a class="catSubCard catSubCard--carch" href="/category/computerscience/computerarchitecture"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">ComputerArchitecture</span></div></a>
-            </div>
           </article>
 
           <article class="catStackItem catStackItem--dev">
@@ -505,17 +461,9 @@
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
                 <h2 class="catHeroTitle">Development</h2>
-                <p class="catHeroDesc">Language · Framework · Infra · DataBase · Tool</p>
-                <span class="catHeroBtn">바로가기</span>
+                <p class="catHeroDesc">Language · Framework · Infra · Database · Tool</p>
               </div>
             </a>
-            <div class="catStackSubs">
-              <a class="catSubCard catSubCard--lang" href="/category/development/language"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Language</span></div></a>
-              <a class="catSubCard catSubCard--framework" href="/category/development/framework"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Framework</span></div></a>
-              <a class="catSubCard catSubCard--infra" href="/category/development/infra"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Infra</span></div></a>
-              <a class="catSubCard catSubCard--db" href="/category/development/database"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DataBase</span></div></a>
-              <a class="catSubCard catSubCard--tool" href="/category/development/tool"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Tool</span></div></a>
-            </div>
           </article>
 
           <!-- Engineering -->
@@ -525,28 +473,18 @@
                 <p class="catHeroKicker">ROOT CATEGORY</p>
                 <h2 class="catHeroTitle">Engineering</h2>
                 <p class="catHeroDesc">DesignPattern · Test</p>
-                <span class="catHeroBtn">바로가기</span>
               </div>
             </a>
-            <div class="catStackSubs catStackSubs--two">
-              <a class="catSubCard catSubCard--dp" href="/category/enginnering/designpattern"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DesignPattern</span></div></a>
-              <a class="catSubCard catSubCard--test" href="/category/enginnering/test"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Test</span></div></a>
-            </div>
           </article>
 
           <article class="catStackItem catStackItem--ts">
             <a class="catStackHero catStackHero--ts" href="/category/trubleshooting">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
-                <h2 class="catHeroTitle">TroubleShooting</h2>
+                <h2 class="catHeroTitle">Trouble<wbr>Shooting</h2>
                 <p class="catHeroDesc">Retrospective · Performance</p>
-                <span class="catHeroBtn">바로가기</span>
               </div>
             </a>
-            <div class="catStackSubs catStackSubs--two">
-              <a class="catSubCard catSubCard--retro" href="/category/trubleshooting/retrospective"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Retrospective</span></div></a>
-              <a class="catSubCard catSubCard--perf" href="/category/trubleshooting/performance"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Performance</span></div></a>
-            </div>
           </article>
         </section>
         <!-- ===============================
