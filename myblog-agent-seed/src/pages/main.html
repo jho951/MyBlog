@@ -47,21 +47,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://t1.daumcdn.net/tistory_admin/static/font/SpoqaHanSans/SpoqaHanSans.css"/>
   <link rel="stylesheet" href="https://t1.daumcdn.net/tistory_admin/static/font/icomoon/icomoon.css"/>
-  <link rel="stylesheet" href="../style/style.css"/>
+  <link rel="stylesheet" href="./style.css">
   <script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
   <script src="//t1.daumcdn.net/tistory_admin/assets/skin/common/vh-check.min.js"></script>
   <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
   <script type="text/javascript" src="./wcs-init.js"></script>
-  <script src="../function/vhcheck-init.js"></script>
-  <script src="../function/util.js" defer></script>
-  <script src="../function/traffic-guard.js" defer></script>
-  <script src="../function/ui-features.js" defer></script>
-  <script src="../function/content-effects.js" defer></script>
-  <script src="../function/ui-list-toggle.js" defer></script>
-  <script src="../function/guestbookStickAnim.js" defer></script>
-  <script src="../function/random-post-box.js" defer></script>
-  <script src="../function/pages-nav.js" defer></script>
-  <script src="../function/boot-init.js" defer></script>
+  <script src="./images/vhcheck-init.js"></script>
+  <script src="./images/util.js" defer></script>
+  <script src="./images/traffic-guard.js" defer></script>
+  <script src="./images/ui-features.js" defer></script>
+  <script src="./images/content-effects.js" defer></script>
+  <script src="./images/ui-list-toggle.js" defer></script>
+  <script src="./images/guestbookStickAnim.js" defer></script>
+  <script src="./images/random-post-box.js" defer></script>
+  <script src="./images/pages-nav.js" defer></script>
+  <script src="./images/boot-init.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -108,6 +108,8 @@
           [##_category_list_##]
         </div>
         <div class="menu-footer">
+          <a class="btn ghost full" href="https://develop-enchantment.tistory.com/guestbook">GuestBook</a>
+          <a class="btn ghost full" href="https://develop-enchantment.tistory.com/pages/about">About</a>
           <button class="btn secondary full btn_subscription #subscribe" data-blog-id="5465220" data-url="https://develop-enchantment.tistory.com" data-device="web_pc" data-tiara-copy="구독하기">구독하기</button>
           <div class="login-logout-button btn primary full">
             <div id="ttAuthStatus" style="display:none;">[##_login_out_status_##]</div>
@@ -132,99 +134,186 @@
       </div>
       <main id="pageHome" class="main" role="main">
         <!-- ==============================
-                  Hub Landing (Vanilla JS)
-        =============================== -->
-        <section class="hubLanding" id="ttHubLanding" aria-label="홈 랜딩 허브">
-          <div class="hubShell">
-            <div class="hubHeroCard">
-              <p class="hubEyebrow">WHO I AM + WHAT I WRITE</p>
-              <h1 class="hubHeroTitle">백엔드 / CS / 설계 중심으로 기록하는 기술 블로그</h1>
-              <p class="hubHeroDesc">
-                해학은 문제를 구조로 이해하고, 재현 가능한 방식으로 정리해 남기는 개발 기록 허브입니다.
-                소개와 글 탐색을 한 화면에서 빠르게 시작할 수 있도록 구성했습니다.
-              </p>
-              <div class="hubHeroActions">
-                <a class="btn primary" href="/category">전체 카테고리 보기</a>
-                <a class="btn secondary" href="#ttHubRecent">최신 글 보기</a>
-                <a class="btn ghost" href="https://github.com/jho951" target="_blank" rel="noopener">GitHub</a>
-              </div>
-              <div class="hubTopicChips" id="ttHubTopicChips" aria-label="주요 주제"></div>
-            </div>
-            <aside class="hubAsideCard" aria-label="빠른 이동과 운영 안내">
-              <div class="hubSectionHead compact">
-                <p class="hubSectionEyebrow">QUICK LINKS</p>
-                <h2 class="hubSectionTitle">자주 찾는 동선</h2>
-              </div>
-              <div class="hubQuickGrid" id="ttHubQuickGrid"></div>
-              <div class="hubTrustMini">
-                <strong>운영 기준</strong>
-                <p>실무/학습 내용을 재현 가능한 순서와 근거 중심으로 정리합니다.</p>
-              </div>
-            </aside>
-          </div>
-
-          <section class="hubSection" aria-labelledby="ttHubFeaturedTitle">
-            <div class="hubSectionHead">
-              <p class="hubSectionEyebrow">FEATURED CONTENT</p>
-              <h2 class="hubSectionTitle" id="ttHubFeaturedTitle">대표 글 / 시리즈 진입점</h2>
-              <p class="hubSectionDesc">입문, 실무 문제해결, 구조/설계 관점으로 나눠 탐색할 수 있습니다.</p>
-            </div>
-            <div class="hubFeatureTabs" id="ttHubFeatureTabs" role="tablist" aria-label="대표 콘텐츠 유형"></div>
-            <div class="hubFeaturePanels" id="ttHubFeaturePanels"></div>
-          </section>
-
-          <section class="hubSection hubSection--split" aria-labelledby="ttHubAboutTitle">
-            <div class="hubPanel">
-              <div class="hubSectionHead compact">
-                <p class="hubSectionEyebrow">ABOUT</p>
-                <h2 class="hubSectionTitle" id="ttHubAboutTitle">소개 & 운영 철학</h2>
-              </div>
-              <p class="hubAboutText">
-                백엔드 중심으로 학습과 실무 경험을 정리합니다. 단순 기록보다 “왜 이렇게 동작하는지”와
-                “어떻게 재현하고 검증했는지”를 남겨 다음 문제 해결 속도를 높이는 것을 목표로 합니다.
-              </p>
-              <div class="hubStrengthGrid" id="ttHubStrengthGrid"></div>
-            </div>
-            <div class="hubPanel">
-              <div class="hubSectionHead compact">
-                <p class="hubSectionEyebrow">TECH SNAPSHOT</p>
-                <h2 class="hubSectionTitle">기술 스택 요약</h2>
-              </div>
-              <div class="hubTechGroups" id="ttHubTechGroups"></div>
-              <div class="hubTrustList" id="ttHubTrustList"></div>
-            </div>
-          </section>
-        </section>
-        <!-- ==============================
                   Minimal
         =============================== -->
         <section class="minimal-icon-section">
           <div class="minimal-container">
-            <h1 class="minimal-title">해학은 <br> 기술 블로그입니다.</h1>
+            <h1 class="minimal-title">Hi, I'm Jangho Lee who focused on systematic problem solving <br> and building sustainable systems.</h1>
             <div class="icon-menu-bar">
               <div class="icon-item">
-                <div class="icon-img"><i class="fa-regular fa-file-lines"></i></div>
-                <span class="icon-label">문서</span>
+                <div class="icon-img"><i class="fa-solid fa-server"></i></div>
+                <span class="icon-label">API 설계</span>
               </div>
               <div class="icon-item">
                 <div class="icon-img">
-                  <i class="fa-regular fa-circle-check"></i>
+                  <i class="fa-solid fa-sitemap"></i>
                 </div>
-                <span class="icon-label">이해</span>
+                <span class="icon-label">아키텍처</span>
               </div>
               <div class="icon-item">
                 <div class="icon-img">
-                  <i class="fa-regular fa-calendar-days"></i>
+                  <i class="fa-solid fa-database"></i>
                 </div>
-                <span class="icon-label">기록</span>
+                <span class="icon-label">데이터 모델링</span>
               </div>
               <div class="icon-item">
                 <div class="icon-img">
-                  <i class="fa-solid fa-pencil"></i>
+                  <i class="fa-solid fa-bug-slash"></i>
                 </div>
-                <span class="icon-label">전문성</span>
+                <span class="icon-label">트러블슈팅</span>
               </div>
             </div>
+          </div>
+        </section>
+        <!-- ==============================
+                  Project Showcase
+        =============================== -->
+        <section class="project-showcase" aria-label="프로젝트 쇼케이스">
+          <div class="project-showcase__inner">
+            <div class="project-showcase__head">
+              <p class="project-showcase__eyebrow">PROJECT SHOWCASE</p>
+              <h2 class="project-showcase__title">포트폴리오 프로젝트</h2>
+              <p class="project-showcase__desc">
+                실무 감각의 백엔드 설계, 데이터 모델링, 운영 안정성 관점에서 진행한 프로젝트를 정리합니다.
+              </p>
+            </div>
+
+            <div class="project-showcase__grid">
+              <article class="project-card project-card--hero">
+                <div class="project-card__meta">
+                  <span class="project-card__badge">Backend API</span>
+                  <span class="project-card__status">대표 프로젝트</span>
+                </div>
+                <h3 class="project-card__title">서비스 API 서버 설계/구현</h3>
+                <p class="project-card__desc">
+                  도메인 중심으로 API를 설계하고 인증/예외 처리/로깅 구조를 정리한 백엔드 프로젝트입니다.
+                </p>
+                <div class="project-card__tags">
+                  <span>Java</span><span>Spring</span><span>JPA</span><span>REST API</span>
+                </div>
+                <div class="project-card__actions">
+                  <a href="https://github.com/jho951" target="_blank" rel="noopener">GitHub</a>
+                  <a href="#" aria-disabled="true">상세 준비중</a>
+                </div>
+              </article>
+
+              <article class="project-card project-card--side project-card--infra">
+                <div class="project-card__meta">
+                  <span class="project-card__badge">Data & Infra</span>
+                  <span class="project-card__status">운영 개선</span>
+                </div>
+                <h3 class="project-card__title">데이터베이스/인프라 운영 개선</h3>
+                <p class="project-card__desc">
+                  배포 및 데이터 저장 구조를 점검하고 병목 지점 분석을 통해 운영 안정성을 높이는 작업을 기록했습니다.
+                </p>
+                <div class="project-card__tags">
+                  <span>MySQL</span><span>Infra</span><span>Performance</span><span>Monitoring</span>
+                </div>
+                <div class="project-card__actions">
+                  <a href="/category/development/infra">관련 글 보기</a>
+                  <a href="/category/trubleshooting/performance">트러블슈팅</a>
+                </div>
+              </article>
+
+              <article class="project-card project-card--side project-card--arch">
+                <div class="project-card__meta">
+                  <span class="project-card__badge">Architecture</span>
+                  <span class="project-card__status">설계 기록</span>
+                </div>
+                <h3 class="project-card__title">구조/설계 중심 기술 정리</h3>
+                <p class="project-card__desc">
+                  아키텍처, 디자인 패턴, 테스트 전략을 프로젝트 관점에서 해석하고 적용 포인트를 정리합니다.
+                </p>
+                <div class="project-card__tags">
+                  <span>Architecture</span><span>Design Pattern</span><span>Test</span><span>Docs</span>
+                </div>
+                <div class="project-card__actions">
+                  <a href="/category/computerscience/architecture">아키텍처 글</a>
+                  <a href="/category/enginnering/designpattern">패턴 글</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!-- ==============================
+                  About Highlight
+        =============================== -->
+        <aside class="section-intro section-intro--about">
+          <h2 class="section-intro__title">About</h2>
+        </aside>
+        <section class="about-highlight-section" aria-label="About Jangho Lee">
+          <a class="about-highlight-card" href="https://develop-enchantment.tistory.com/pages/About">
+            <div class="about-highlight-card__body">
+              <p>
+                I began programming through the Dongjak Innovation Camp, and later worked at a company
+                participating in the Tourism Enterprise Innovation Voucher Program, where I contributed to
+                digital transformation initiatives and public procurement projects (KONEPS/Nara Marketplace).
+              </p>
+              <p>
+                At a medical imaging company, I redesigned core logic and optimized rendering performance.
+                By establishing observability through structured logging points across diverse scenarios and
+                validating consistency based on those logs, I achieved a 92% reduction in positional error,
+                a 79% improvement in p95 latency, and a 90%+ reduction in Long Tasks.
+              </p>
+              <div class="about-highlight-card__metrics" aria-label="핵심 성과">
+                <div class="about-metric">
+                  <span class="about-metric__value">92%</span>
+                  <span class="about-metric__label">Positional Error Reduction</span>
+                </div>
+                <div class="about-metric">
+                  <span class="about-metric__value">79%</span>
+                  <span class="about-metric__label">p95 Latency Improvement</span>
+                </div>
+                <div class="about-metric">
+                  <span class="about-metric__value">90%+</span>
+                  <span class="about-metric__label">Long Tasks Reduction</span>
+                </div>
+              </div>
+            </div>
+            <span class="about-highlight-card__arrow" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </a>
+        </section>
+        <!-- ==============================
+                  Awards
+        =============================== -->
+        <aside class="section-intro section-intro--awards">
+          <h2 class="section-intro__title">Awards_</h2>
+          <p class="section-intro__desc">성과와 평가를 통해 검증된 개발 역량입니다.</p>
+        </aside>
+        <section class="awards-section" aria-label="Awards">
+          <div class="awards-list">
+            <article class="award-item">
+              <div class="award-item__icon" aria-hidden="true">
+                <i class="fa-solid fa-medal"></i>
+              </div>
+              <div class="award-item__body">
+                <p class="award-item__date">2022.02 -> 한국장학재단</p>
+                <h3 class="award-item__title">우수 멘티</h3>
+                <p class="award-item__org">한국장학재단 사회 리더 대학생 멘토링 IT</p>
+              </div>
+            </article>
+            <article class="award-item">
+              <div class="award-item__icon" aria-hidden="true">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div class="award-item__body">
+                <p class="award-item__date">2022.10 -> 동작구청</p>
+                <h3 class="award-item__title">우수 인재상</h3>
+                <p class="award-item__org">동작구청 우수 SW 인재</p>
+              </div>
+            </article>
+            <article class="award-item">
+              <div class="award-item__icon" aria-hidden="true">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <div class="award-item__body">
+                <p class="award-item__date">2025.05 -> (주) 그랩</p>
+                <h3 class="award-item__title">프로그래밍 우수상</h3>
+                <p class="award-item__org">(주) 그랩 우수 프로그램 개발</p>
+              </div>
+            </article>
           </div>
         </section>
         <!-- ==============================
@@ -287,9 +376,9 @@
                        Cat
         =============================== -->
         <section class="catHub catHub--mobile mobile-only" aria-label="Categories (mobile tabs)">
-          <aside class="rp4-info">
-            <h2 class="rp4-info-title">일단 시작해보세요.</h2>
-            <p class="rp4-info-desc">어디서부터 볼지 막막하다면, 일단 읽어보세요.</p>
+          <aside class="section-intro">
+            <h2 class="section-intro__title">일단 시작해보세요.</h2>
+            <p class="section-intro__desc">어디서부터 볼지 막막하다면, 일단 읽어보세요.</p>
           </aside>
           <div class="catHubStage">
             <!-- CSS-only tabs -->
@@ -391,16 +480,9 @@
             </div>
           </div>
         </section>
-        <section class="hubSection hubSection--category" aria-labelledby="ttHubCategoryTitle">
-          <div class="hubSectionHead">
-            <p class="hubSectionEyebrow">CATEGORY HUB</p>
-            <h2 class="hubSectionTitle" id="ttHubCategoryTitle">카테고리 중심 탐색</h2>
-            <p class="hubSectionDesc">CS / Development / Engineering / TroubleShooting 카테고리에서 바로 탐색을 시작하세요.</p>
-          </div>
-        </section>
 
         <section class="catStack tablet-up" aria-label="Categories (tablet/pc list)">
-          <article class="catStackItem">
+          <article class="catStackItem catStackItem--cs">
             <a class="catStackHero catStackHero--cs" href="/category/computerscience">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
@@ -418,7 +500,7 @@
             </div>
           </article>
 
-          <article class="catStackItem">
+          <article class="catStackItem catStackItem--dev">
             <a class="catStackHero catStackHero--dev" href="/category/development">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
@@ -437,7 +519,7 @@
           </article>
 
           <!-- Engineering -->
-          <article class="catStackItem">
+          <article class="catStackItem catStackItem--eng">
             <a class="catStackHero catStackHero--eng" href="/category/enginnering">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
@@ -452,7 +534,7 @@
             </div>
           </article>
 
-          <article class="catStackItem">
+          <article class="catStackItem catStackItem--ts">
             <a class="catStackHero catStackHero--ts" href="/category/trubleshooting">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
@@ -467,25 +549,13 @@
             </div>
           </article>
         </section>
-        <section class="hubSection" id="ttHubRecent" aria-labelledby="ttHubRecentTitle">
-          <div class="hubSectionHead">
-            <p class="hubSectionEyebrow">RECENT POSTS</p>
-            <h2 class="hubSectionTitle" id="ttHubRecentTitle">최신 글 / 업데이트</h2>
-            <p class="hubSectionDesc">티스토리 최신 글 블록을 기반으로 메인 탐색 리스트를 재구성합니다.</p>
-          </div>
-          <div class="hubRecentList" id="ttHubRecentList" aria-live="polite"></div>
-          <div class="hubRecentActions">
-            <a class="btn secondary" href="/category">전체 글 보기</a>
-            <a class="btn ghost" href="[##_rss_url_##]" target="_blank" rel="noopener">RSS</a>
-          </div>
-        </section>
         <!-- ===============================
                      Random
         =============================== -->
         <section class="rp4" aria-label="카테고리 랜덤 이동">
-          <aside class="rp4-info">
-            <h2 class="rp4-info-title">일단 시작해보세요.</h2>
-            <p class="rp4-info-desc">어디서부터 볼지 막막하다면, 일단 읽어보세요.</p>
+          <aside class="section-intro">
+            <h2 class="section-intro__title">일단 시작해보세요.</h2>
+            <p class="section-intro__desc">어디서부터 볼지 막막하다면, 일단 읽어보세요.</p>
           </aside>
           <article class="rp4-card" role="button" tabindex="0" data-cat="ComputerScience" data-rss="/category/computerscience/rss" data-list="/category/computerscience">
             <div class="rp4-icon rp4-icon--blue" aria-hidden="true">CS</div>
@@ -629,27 +699,6 @@
             [##_blog_menu_##]
           </nav>
         </section>
-        <section class="hubSection hubSection--split hubSection--connect" id="ttHubConnect" aria-labelledby="ttHubConnectTitle">
-          <div class="hubPanel">
-            <div class="hubSectionHead compact">
-              <p class="hubSectionEyebrow">RELATIONSHIP</p>
-              <h2 class="hubSectionTitle" id="ttHubConnectTitle">구독 / 방명록 / 연락</h2>
-            </div>
-            <p class="hubAboutText">재방문 알림은 구독으로, 짧은 인사는 방명록으로, 협업/문의는 GitHub 또는 메일로 연결됩니다.</p>
-            <div class="hubQuickGrid" id="ttHubConnectGrid"></div>
-          </div>
-          <div class="hubPanel hubPanel--note">
-            <div class="hubSectionHead compact">
-              <p class="hubSectionEyebrow">VISITOR GUIDE</p>
-              <h2 class="hubSectionTitle">처음 방문하셨다면</h2>
-            </div>
-            <ol class="hubGuideList">
-              <li>대표 콘텐츠 탭에서 관심 주제를 먼저 선택합니다.</li>
-              <li>카테고리 허브에서 세부 분야로 이동합니다.</li>
-              <li>최신 글 목록에서 최근 업데이트 흐름을 확인합니다.</li>
-            </ol>
-          </div>
-        </section>
         <!-- ===============================
                       Cta
         =============================== -->
@@ -764,6 +813,20 @@
                 </button>
               </div>
             </div>
+            <nav class="list-category-tabs" id="ttListCategoryTabs" aria-label="카테고리 필터">
+              <a class="list-category-tab" href="[##_blog_link_##]category" data-category-slug="">All</a>
+              <a class="list-category-tab" href="https://develop-enchantment.tistory.com/category/computerscience" data-category-slug="computerscience">ComputerScience</a>
+              <a class="list-category-tab" href="https://develop-enchantment.tistory.com/category/development" data-category-slug="development">Development</a>
+              <a class="list-category-tab" href="https://develop-enchantment.tistory.com/category/engineering" data-category-slug="engineering">Engineering</a>
+              <a class="list-category-tab" href="https://develop-enchantment.tistory.com/category/troubleshooting" data-category-slug="troubleshooting">TroubleShooting</a>
+            </nav>
+            <section class="list-subcategory-shell" id="ttListSubcategoryShell" aria-label="하위 카테고리 필터" hidden>
+              <div class="list-subcategory-head">
+                <span class="list-subcategory-kicker">SUB CATEGORIES</span>
+                <strong class="list-subcategory-title" id="ttListSubcategoryTitle">Category</strong>
+              </div>
+              <nav class="list-subcategory-tabs" id="ttListSubcategoryTabs" aria-label="하위 카테고리 탭"></nav>
+            </section>
           </section>
           <section class="list-grid">
             <s_list_rep>
@@ -920,251 +983,113 @@
 </s_t3>
 <script>
   (function () {
-    var home = document.getElementById('pageHome');
-    if (!home) return;
+    var root = document.getElementById('ttListCategoryTabs');
+    if (!root) return;
+    var subShell = document.getElementById('ttListSubcategoryShell');
+    var subTabsRoot = document.getElementById('ttListSubcategoryTabs');
+    var subTitle = document.getElementById('ttListSubcategoryTitle');
 
-    var topicChips = [
-      'ComputerScience',
-      'Backend',
-      'Architecture',
-      'Spring',
-      'Infra',
-      'TroubleShooting'
-    ];
-
-    var quickLinks = [
-      { label: '전체 카테고리', href: '/category', desc: '기술 주제별 탐색 시작' },
-      { label: '전체 글 보기', href: '[##_blog_link_##]archive', desc: '전체 포스트 아카이브' },
-      { label: '대표 글 보기', href: '#ttHubFeatureTabs', desc: '입문/실무/설계 큐레이션' },
-      { label: '방명록', href: '/guestbook', desc: '방문 기록 남기기' },
-      { label: '구독 안내', href: '#ttSubscribePromo', desc: 'RSS/티스토리 구독' },
-      { label: 'GitHub', href: 'https://github.com/jho951', desc: '코드 저장소 확인', external: true }
-    ];
-
-    var connectLinks = [
-      { label: '구독하기', href: '#ttSubscribePromo', desc: '새 글 알림 받기' },
-      { label: '방명록 가기', href: '/guestbook', desc: '한 줄 인사 남기기' },
-      { label: 'GitHub', href: 'https://github.com/jho951', desc: '프로젝트/코드 보기', external: true },
-      { label: '이메일', href: 'mailto:jho951@naver.com', desc: '협업/문의 메일' }
-    ];
-
-    var featuredGroups = [
-      {
-        key: 'starter',
-        label: '입문용',
+    var path = (window.location && window.location.pathname ? window.location.pathname : '').toLowerCase();
+    var tabs = root.querySelectorAll('.list-category-tab');
+    var activeSlug = '';
+    var activeSubSlug = '';
+    var aliasRootMap = {
+      enginnering: 'engineering',
+      trubleshooting: 'troubleshooting'
+    };
+    var subcategoryMap = {
+      computerscience: {
+        label: 'ComputerScience',
         items: [
-          { title: 'CS 개념 정리 모음', summary: 'OS / Network / Architecture 중심으로 기초 개념 흐름을 정리한 글들', href: '/category/computerscience', meta: 'CS' },
-          { title: '개발 환경/도구 셋업 기록', summary: '개발 생산성을 높이는 툴 설정과 학습 시작점', href: '/category/development/tool', meta: 'Development' },
-          { title: '테스트 기초와 검증 관점', summary: '테스트 필요성과 기본 패턴을 이해하기 위한 진입 글', href: '/category/enginnering/test', meta: 'Engineering' }
+          { slug: 'datastructure', label: 'DataStructure' },
+          { slug: 'algorithm', label: 'Algorithm' },
+          { slug: 'network', label: 'Network' },
+          { slug: 'os', label: 'OS' }
         ]
       },
-      {
-        key: 'practical',
-        label: '실무/문제해결',
+      development: {
+        label: 'Development',
         items: [
-          { title: '트러블슈팅 기록 허브', summary: '재현 조건, 원인 분석, 해결 과정 중심의 문제 해결 로그', href: '/category/trubleshooting', meta: 'TroubleShooting' },
-          { title: '성능 이슈 대응 메모', summary: '병목 지점 확인과 개선 시도 과정을 남긴 글들', href: '/category/trubleshooting/performance', meta: 'Performance' },
-          { title: 'Infra / DB 운영성 개선', summary: '배포/인프라/데이터베이스 운영 경험 및 설정 기록', href: '/category/development/infra', meta: 'Infra' }
+          { slug: 'language', label: 'Language' },
+          { slug: 'framework', label: 'Framework' },
+          { slug: 'infra', label: 'Infra' },
+          { slug: 'database', label: 'DataBase' },
+          { slug: 'tool', label: 'Tool' }
         ]
       },
-      {
-        key: 'design',
-        label: '구조/설계',
+      engineering: {
+        label: 'Engineering',
         items: [
-          { title: '아키텍처 관점 정리', summary: '구조 선택 이유와 트레이드오프를 다루는 설계 중심 글', href: '/category/computerscience/architecture', meta: 'Architecture' },
-          { title: '디자인 패턴 정리', summary: '패턴의 의도와 적용 시점, 코드 레벨 해석', href: '/category/enginnering/designpattern', meta: 'Pattern' },
-          { title: '프레임워크 구조 이해', summary: '프레임워크 내부 동작과 설계 포인트를 추적한 기록', href: '/category/development/framework', meta: 'Framework' }
+          { slug: 'designpattern', label: 'DesignPattern' },
+          { slug: 'test', label: 'Test' }
+        ]
+      },
+      troubleshooting: {
+        label: 'TroubleShooting',
+        items: [
+          { slug: 'retrospective', label: 'Retrospective' },
+          { slug: 'performance', label: 'Performance' }
         ]
       }
-    ];
+    };
 
-    var strengths = [
-      { title: '구조적 설명', desc: '서론-본론-결론 흐름으로 맥락을 끊기지 않게 정리' },
-      { title: '재현 가능한 디버깅', desc: '문제 상황과 해결 절차를 단계별로 기록' },
-      { title: '지속적인 기록', desc: '학습/실무 내용을 카테고리 허브로 축적' }
-    ];
-
-    var techGroups = [
-      { level: 'Strong', name: 'Backend / Java / Spring', tags: ['Java', 'Spring', 'API', 'Server'] },
-      { level: 'Familiar', name: 'Infra / DB / Tooling', tags: ['Linux', 'Infra', 'DataBase', 'Tool'] },
-      { level: 'Learning', name: 'Architecture / Performance', tags: ['Architecture', 'Performance', 'Testing'] }
-    ];
-
-    var trustSignals = [
-      '운영 목적: 학습 + 실무 문제해결 기록',
-      '작성 기준: 재현 가능성, 근거, 트레이드오프',
-      '업데이트 방식: 카테고리 누적 + 최신 글 지속 추가'
-    ];
-
-    function escapeHtml(text) {
-      return String(text || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+    if (path.indexOf('/category/') !== -1) {
+      var rest = path.split('/category/')[1] || '';
+      var parts = rest.split('/').filter(function (v) { return !!v; });
+      var slug = parts[0] || '';
+      activeSlug = aliasRootMap[slug] || slug;
+      activeSubSlug = parts[1] || '';
     }
 
-    function renderLinkGrid(targetId, links) {
-      var root = document.getElementById(targetId);
-      if (!root) return;
-      root.innerHTML = links.map(function (link) {
-        var attrs = link.external ? ' target="_blank" rel="noopener"' : '';
-        return (
-          '<a class="hubLinkCard" href="' + escapeHtml(link.href) + '"' + attrs + '>' +
-            '<span class="hubLinkLabel">' + escapeHtml(link.label) + '</span>' +
-            '<span class="hubLinkDesc">' + escapeHtml(link.desc) + '</span>' +
-          '</a>'
-        );
-      }).join('');
-    }
-
-    function renderChips() {
-      var root = document.getElementById('ttHubTopicChips');
-      if (!root) return;
-      root.innerHTML = topicChips.map(function (topic) {
-        return '<span class="hubChip">#' + escapeHtml(topic) + '</span>';
-      }).join('');
-    }
-
-    function renderStrengths() {
-      var root = document.getElementById('ttHubStrengthGrid');
-      if (!root) return;
-      root.innerHTML = strengths.map(function (item) {
-        return (
-          '<article class="hubMiniCard">' +
-            '<h3>' + escapeHtml(item.title) + '</h3>' +
-            '<p>' + escapeHtml(item.desc) + '</p>' +
-          '</article>'
-        );
-      }).join('');
-    }
-
-    function renderTech() {
-      var techRoot = document.getElementById('ttHubTechGroups');
-      var trustRoot = document.getElementById('ttHubTrustList');
-      if (techRoot) {
-        techRoot.innerHTML = techGroups.map(function (group) {
-          return (
-            '<section class="hubTechCard">' +
-              '<div class="hubTechHead"><span class="hubTechLevel">' + escapeHtml(group.level) + '</span>' +
-              '<h3>' + escapeHtml(group.name) + '</h3></div>' +
-              '<div class="hubTechTags">' +
-                group.tags.map(function (tag) { return '<span class="hubChip hubChip--muted">' + escapeHtml(tag) + '</span>'; }).join('') +
-              '</div>' +
-            '</section>'
-          );
-        }).join('');
+    for (var i = 0; i < tabs.length; i++) {
+      var tab = tabs[i];
+      var slugAttr = tab.getAttribute('data-category-slug') || '';
+      var isActive = slugAttr === activeSlug || (!activeSlug && slugAttr === '' && path.indexOf('/category/') === -1 ? true : false);
+      if (path.indexOf('/category') !== -1 && slugAttr === '' && !activeSlug) {
+        isActive = true;
       }
-      if (trustRoot) {
-        trustRoot.innerHTML = '<ul>' + trustSignals.map(function (signal) {
-          return '<li>' + escapeHtml(signal) + '</li>';
-        }).join('') + '</ul>';
+      tab.classList.toggle('is-active', isActive);
+      if (isActive) tab.setAttribute('aria-current', 'page');
+      else tab.removeAttribute('aria-current');
+    }
+
+    if (!subShell || !subTabsRoot || !subcategoryMap[activeSlug]) return;
+
+    var subData = subcategoryMap[activeSlug];
+    var categoryBase = '[##_blog_link_##]category/';
+    if (categoryBase.indexOf('[##_') !== -1) {
+      categoryBase = (window.location && window.location.origin ? window.location.origin : '') + '/category/';
+    }
+
+    if (subTitle) subTitle.textContent = subData.label;
+    subTabsRoot.innerHTML = '';
+
+    var allSub = document.createElement('a');
+    allSub.className = 'list-subcategory-tab';
+    allSub.href = categoryBase + activeSlug;
+    allSub.textContent = '전체';
+    allSub.setAttribute('data-subcategory-slug', '');
+    if (!activeSubSlug) {
+      allSub.classList.add('is-active');
+      allSub.setAttribute('aria-current', 'page');
+    }
+    subTabsRoot.appendChild(allSub);
+
+    for (var j = 0; j < subData.items.length; j++) {
+      var item = subData.items[j];
+      var a = document.createElement('a');
+      a.className = 'list-subcategory-tab';
+      a.href = categoryBase + activeSlug + '/' + item.slug;
+      a.textContent = item.label;
+      a.setAttribute('data-subcategory-slug', item.slug);
+      if (activeSubSlug === item.slug) {
+        a.classList.add('is-active');
+        a.setAttribute('aria-current', 'page');
       }
+      subTabsRoot.appendChild(a);
     }
 
-    function renderFeatured() {
-      var tabsRoot = document.getElementById('ttHubFeatureTabs');
-      var panelsRoot = document.getElementById('ttHubFeaturePanels');
-      if (!tabsRoot || !panelsRoot) return;
-
-      tabsRoot.innerHTML = featuredGroups.map(function (group, index) {
-        return (
-          '<button type="button" class="hubFeatureTab' + (index === 0 ? ' is-active' : '') + '"' +
-          ' data-feature-tab="' + escapeHtml(group.key) + '"' +
-          ' role="tab" aria-selected="' + (index === 0 ? 'true' : 'false') + '"' +
-          ' aria-controls="ttFeaturePanel-' + escapeHtml(group.key) + '">' +
-          escapeHtml(group.label) +
-          '</button>'
-        );
-      }).join('');
-
-      panelsRoot.innerHTML = featuredGroups.map(function (group, index) {
-        return (
-          '<div class="hubFeaturePanel' + (index === 0 ? ' is-active' : '') + '"' +
-          ' id="ttFeaturePanel-' + escapeHtml(group.key) + '"' +
-          ' data-feature-panel="' + escapeHtml(group.key) + '"' +
-          ' role="tabpanel"' + (index === 0 ? '' : ' hidden') + '>' +
-          '<div class="hubFeatureGrid">' +
-          group.items.map(function (item) {
-            return (
-              '<a class="hubFeatureCard" href="' + escapeHtml(item.href) + '">' +
-                '<span class="hubFeatureMeta">' + escapeHtml(item.meta) + '</span>' +
-                '<h3 class="hubFeatureTitle">' + escapeHtml(item.title) + '</h3>' +
-                '<p class="hubFeatureDesc">' + escapeHtml(item.summary) + '</p>' +
-              '</a>'
-            );
-          }).join('') +
-          '</div>' +
-          '</div>'
-        );
-      }).join('');
-
-      tabsRoot.addEventListener('click', function (event) {
-        var button = event.target.closest('[data-feature-tab]');
-        if (!button) return;
-        var key = button.getAttribute('data-feature-tab');
-        var buttons = tabsRoot.querySelectorAll('[data-feature-tab]');
-        var panels = panelsRoot.querySelectorAll('[data-feature-panel]');
-        buttons.forEach(function (node) {
-          var active = node === button;
-          node.classList.toggle('is-active', active);
-          node.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        panels.forEach(function (panel) {
-          var active = panel.getAttribute('data-feature-panel') === key;
-          panel.classList.toggle('is-active', active);
-          panel.hidden = !active;
-        });
-      });
-    }
-
-    function collectRecentPosts() {
-      var sourceCards = document.querySelectorAll('#ttLatestTrack .latest-slide');
-      var items = [];
-      sourceCards.forEach(function (card) {
-        if (items.length >= 6) return;
-        var link = card.querySelector('.card-link');
-        var title = card.querySelector('.card-title');
-        var category = card.querySelector('.badge');
-        var date = card.querySelector('.card-date');
-        if (!link || !title) return;
-        items.push({
-          href: link.getAttribute('href') || '#',
-          title: title.textContent.trim(),
-          category: category ? category.textContent.trim() : 'Post',
-          date: date ? date.textContent.trim() : ''
-        });
-      });
-      return items;
-    }
-
-    function renderRecent() {
-      var root = document.getElementById('ttHubRecentList');
-      if (!root) return;
-      var items = collectRecentPosts();
-      if (!items.length) {
-        root.innerHTML = '<p class="hubEmpty">최신 글 목록을 불러오지 못했습니다. 카테고리 또는 전체 글 보기로 이동해 주세요.</p>';
-        return;
-      }
-      root.innerHTML = items.map(function (item) {
-        return (
-          '<a class="hubRecentItem" href="' + escapeHtml(item.href) + '">' +
-            '<span class="hubRecentCategory">' + escapeHtml(item.category) + '</span>' +
-            '<span class="hubRecentTitle">' + escapeHtml(item.title) + '</span>' +
-            '<span class="hubRecentDate">' + escapeHtml(item.date) + '</span>' +
-          '</a>'
-        );
-      }).join('');
-    }
-
-    renderChips();
-    renderLinkGrid('ttHubQuickGrid', quickLinks);
-    renderLinkGrid('ttHubConnectGrid', connectLinks);
-    renderStrengths();
-    renderTech();
-    renderFeatured();
-    renderRecent();
+    subShell.hidden = false;
   })();
 </script>
 </body>

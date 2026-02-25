@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="Network sub category cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef6f5"/>
+      <stop offset="100%" stop-color="#f7efdf"/>
+    </linearGradient>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6ea2a6" stop-opacity=".20"/>
+      <stop offset="100%" stop-color="#c4ddda" stop-opacity=".14"/>
+    </linearGradient>
+    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22 0H0V22" fill="none" stroke="#8f734f" stroke-opacity=".08" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect width="1200" height="700" fill="url(#grid)" opacity=".55"/>
+  <rect width="1200" height="700" fill="url(#wash)"/>
+  <circle cx="990" cy="150" r="170" fill="#6ea2a6" opacity=".12"/>
+  <circle cx="180" cy="570" r="210" fill="#c4ddda" opacity=".10"/>
+  <path d="M70 100 C220 30, 440 30, 590 110" fill="none" stroke="#8f734f" stroke-opacity=".18" stroke-width="2" stroke-dasharray="5 9"/>
+  <path d="M700 560 C820 500, 980 500, 1130 585" fill="none" stroke="#8f734f" stroke-opacity=".16" stroke-width="2" stroke-dasharray="4 10"/>
+
+  <g transform="translate(92,96) rotate(-1.4)">
+    <rect x="0" y="0" width="760" height="470" rx="20" fill="#fffaf0" fill-opacity=".92" stroke="#c9ad86" stroke-opacity=".42"/>
+    <rect x="16" y="16" width="728" height="438" rx="14" fill="none" stroke="#ae8c61" stroke-opacity=".20" stroke-dasharray="4 6"/>
+    <rect x="28" y="28" width="14" height="414" rx="7" fill="#d8c3a2" opacity=".8"/>
+    <rect x="62" y="58" width="112" height="28" rx="14" fill="#6ea2a6" fill-opacity=".15" stroke="#6ea2a6" stroke-opacity=".28"/>
+    <text x="78" y="77" font-size="12" font-family="Arial,sans-serif" letter-spacing="1.3" fill="#6f5839">SUB CATEGORY</text>
+    <text x="62" y="165" font-size="50" font-weight="700" font-family="Georgia, serif" fill="#2f2317">Network</text>
+    <text x="64" y="205" font-size="18" font-family="Arial,sans-serif" fill="#735c3c">Craft note card / tone-on-tone</text>
+    <path d="M64 245 H540" stroke="#a28359" stroke-opacity=".18" stroke-width="2"/>
+    <path d="M64 278 H660" stroke="#a28359" stroke-opacity=".10" stroke-width="1"/>
+    <path d="M64 308 H620" stroke="#a28359" stroke-opacity=".10" stroke-width="1"/>
+    <path d="M64 338 H690" stroke="#a28359" stroke-opacity=".10" stroke-width="1"/>
+
+    <g transform="translate(560,56) rotate(2)">
+      <rect x="0" y="0" width="150" height="90" rx="12" fill="#f3e8d1" stroke="#c8ab84" stroke-opacity=".48"/>
+      <text x="18" y="34" font-size="12" font-family="Arial,sans-serif" letter-spacing="1.4" fill="#7b6241">CODE</text>
+      <text x="18" y="62" font-size="24" font-weight="700" font-family="Georgia, serif" fill="#2d2317">NW</text>
+    </g>
+  </g>
+</svg>
