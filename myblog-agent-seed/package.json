@@ -1,0 +1,9 @@
+{
+  "name": "myblog-agent-seed",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo add build",
+    "test": "echo add tests"
+  }
+}
