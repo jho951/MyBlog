@@ -8,7 +8,7 @@
 
 ## 협업 산출물
 
-- 요구사항: `docs/REQUIREMENTS.md`
-- 의사결정 기록: `docs/decisions/`
-- 프롬프트: `prompts/`
-- 실행/장애 가이드: `docs/runbook/DEBUG.md`
+- 요구사항: [REQUIREMENTS](./docs/REQUIREMENTS.md)
+- 의사결정 기록: [DECISIONS](./docs/decisions/)
+- 프롬프트: [PROMPTS](./prompts/README.md)
+- 실행/장애 가이드: [DEBUG](./docs/runbook/DEBUG.md)
