@@ -934,6 +934,41 @@
     }
 
     // -------------------------
+    // desktop catStack full-card routing
+    // - allow click/keyboard on whole asymmetric banner card
+    // -------------------------
+    function initCatStackBannerRouting() {
+        var items = document.querySelectorAll("#pageHome .catStack .catStackItem");
+        if (!items || !items.length) return;
+
+        for (var i = 0; i < items.length; i++) {
+            (function (item) {
+                if (item.__ttCatStackRouteBound) return;
+                var link = item.querySelector(".catStackHero[href]");
+                if (!link) return;
+
+                var href = (link.getAttribute("href") || "").trim();
+                if (!href) return;
+
+                item.__ttCatStackRouteBound = true;
+                item.setAttribute("role", "link");
+                item.setAttribute("tabindex", "0");
+
+                item.addEventListener("click", function (e) {
+                    if (e.target && e.target.closest("a[href]")) return;
+                    window.location.href = href;
+                });
+
+                item.addEventListener("keydown", function (e) {
+                    if (e.key !== "Enter" && e.key !== " ") return;
+                    e.preventDefault();
+                    window.location.href = href;
+                });
+            })(items[i]);
+        }
+    }
+
+    // -------------------------
     // article TOC + comment dock
     // - left: TOC from h2/h3 in #ttPostContent
     // - right: comment form as memo note (desktop)
@@ -1266,6 +1301,7 @@ function removeNamecardBlock() {
         try { initCapsuleHeaderToggle(); } catch (e) {}
         try { initCategoryCardsFromGnb(); } catch (e) {}
         try { initMobileCategoryTabs(); } catch (e) {}
+        try { initCatStackBannerRouting(); } catch (e) {}
         try { initArticleEnhancements(); } catch (e) {}
     });
 

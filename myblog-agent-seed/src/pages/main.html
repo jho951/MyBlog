@@ -58,6 +58,7 @@
   <script src="./images/ui-features.js" defer></script>
   <script src="./images/content-effects.js" defer></script>
   <script src="./images/ui-list-toggle.js" defer></script>
+  <script src="./images/list-search-filter.js" defer></script>
   <script src="./images/guestbookStickAnim.js" defer></script>
   <script src="./images/random-post-box.js" defer></script>
   <script src="./images/list-subcategory-tabs.js" defer></script>
@@ -210,7 +211,7 @@
                 </div>
                 <div class="project-card__actions">
                   <a href="/category/development/infra">관련 글 보기</a>
-                  <a href="/category/trubleshooting/performance">트러블슈팅</a>
+                  <a href="/category/troubleshooting/performance">트러블슈팅</a>
                 </div>
               </article>
 
@@ -228,7 +229,7 @@
                 </div>
                 <div class="project-card__actions">
                   <a href="/category/computerscience/architecture">아키텍처 글</a>
-                  <a href="/category/enginnering/designpattern">패턴 글</a>
+                  <a href="/category/engineering/designpattern">패턴 글</a>
                 </div>
               </article>
             </div>
@@ -395,7 +396,7 @@
               </article>
 
               <article class="catHubGroup catHubGroup--eng">
-                <a class="catHero catHero--eng" href="/category/enginnering">
+                <a class="catHero catHero--eng" href="/category/engineering">
                   <div class="catHeroInner">
                     <p class="catHeroKicker">ROOT CATEGORY</p>
                     <h2 class="catHeroTitle">Engineering</h2>
@@ -403,13 +404,13 @@
                   </div>
                 </a>
                 <div class="catSubGrid catSubGrid--eng" aria-label="Engineering sub categories">
-                  <a class="catSubCard catSubCard--dp" href="/category/enginnering/designpattern"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DesignPattern</span></div></a>
-                  <a class="catSubCard catSubCard--test" href="/category/enginnering/test"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Test</span></div></a>
+                  <a class="catSubCard catSubCard--dp" href="/category/engineering/designpattern"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">DesignPattern</span></div></a>
+                  <a class="catSubCard catSubCard--test" href="/category/engineering/test"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Test</span></div></a>
                 </div>
               </article>
 
               <article class="catHubGroup catHubGroup--ts">
-                <a class="catHero catHero--ts" href="/category/trubleshooting">
+                <a class="catHero catHero--ts" href="/category/troubleshooting">
                   <div class="catHeroInner">
                     <p class="catHeroKicker">ROOT CATEGORY</p>
                     <h2 class="catHeroTitle">Trouble<wbr>Shooting</h2>
@@ -417,8 +418,8 @@
                   </div>
                 </a>
                 <div class="catSubGrid catSubGrid--ts" aria-label="TroubleShooting sub categories">
-                  <a class="catSubCard catSubCard--retro" href="/category/trubleshooting/retrospective"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Retrospective</span></div></a>
-                  <a class="catSubCard catSubCard--perf" href="/category/trubleshooting/performance"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Performance</span></div></a>
+                  <a class="catSubCard catSubCard--retro" href="/category/troubleshooting/retrospective"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Retrospective</span></div></a>
+                  <a class="catSubCard catSubCard--perf" href="/category/troubleshooting/performance"><div class="catSubVisual"></div><div class="catSubBody"><span class="catSubName">Performance</span></div></a>
                 </div>
               </article>
             </div>
@@ -448,7 +449,7 @@
 
           <!-- Engineering -->
           <article class="catStackItem catStackItem--eng">
-            <a class="catStackHero catStackHero--eng" href="/category/enginnering">
+            <a class="catStackHero catStackHero--eng" href="/category/engineering">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
                 <h2 class="catHeroTitle">Engineering</h2>
@@ -458,7 +459,7 @@
           </article>
 
           <article class="catStackItem catStackItem--ts">
-            <a class="catStackHero catStackHero--ts" href="/category/trubleshooting">
+            <a class="catStackHero catStackHero--ts" href="/category/troubleshooting">
               <div class="catHeroInner">
                 <p class="catHeroKicker">ROOT CATEGORY</p>
                 <h2 class="catHeroTitle">Trouble<wbr>Shooting</h2>
@@ -483,11 +484,11 @@
             <div class="rp4-icon rp4-icon--gray" aria-hidden="true">DV</div>
             <h3 class="rp4-title gray">Development</h3>
           </article>
-          <article class="rp4-card" role="button" tabindex="0" data-cat="Engineering" data-rss="/category/enginnering/rss" data-list="/category/enginnering">
+          <article class="rp4-card" role="button" tabindex="0" data-cat="Engineering" data-rss="/category/engineering/rss" data-list="/category/engineering">
             <div class="rp4-icon rp4-icon--black" aria-hidden="true">EN</div>
             <h3 class="rp4-title black">Engineering</h3>
           </article>
-          <article class="rp4-card" role="button" tabindex="0" data-cat="Trouble Shooting" data-rss="/category/trubleshooting/rss" data-list="/category/trubleshooting">
+          <article class="rp4-card" role="button" tabindex="0" data-cat="Trouble Shooting" data-rss="/category/troubleshooting/rss" data-list="/category/troubleshooting">
             <div class="rp4-icon rp4-icon--green" aria-hidden="true">TS</div>
             <h3 class="rp4-title green">Trouble Shooting</h3>
           </article>
@@ -703,79 +704,101 @@
       <main id="pageList" class="page ttPageList" role="main" data-view="list">
         <div class="page-wrap">
           <section class="list-header">
-            <div class="list-header-row">
+            <div class="list-header-top">
               <h1 class="list-title">[##_list_conform_##]</h1>
-              <div class="list-view-toggle" role="group" aria-label="보기 방식">
-                <button type="button" class="view-btn is-active" data-view="list" aria-pressed="true" title="리스트">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"/>
-                  </svg>
+              <div class="list-toolbar">
+                <button type="button" class="list-search-toggle" id="ttListSearchToggle" aria-expanded="false" aria-controls="ttListSearchPanel" title="검색">
+                  <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="view-btn" data-view="card" aria-pressed="false" title="카드">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <nav class="list-category-tabs" id="ttListCategoryTabs" aria-label="카테고리 필터">
-              <a class="list-category-tab" href="[##_blog_link_##]category" data-category-slug="">All</a>
-              <a class="list-category-tab" href="[##_blog_link_##]category/computerscience" data-category-slug="computerscience">ComputerScience</a>
-              <a class="list-category-tab" href="[##_blog_link_##]category/development" data-category-slug="development">Development</a>
-              <a class="list-category-tab" href="[##_blog_link_##]category/engineering" data-category-slug="engineering">Engineering</a>
-              <a class="list-category-tab" href="[##_blog_link_##]category/troubleshooting" data-category-slug="troubleshooting">TroubleShooting</a>
-            </nav>
-            <section class="list-subcategory-shell" id="ttListSubcategoryShell" aria-label="하위 카테고리 필터" hidden>
-              <div class="list-subcategory-head">
-                <span class="list-subcategory-kicker">SUB CATEGORIES</span>
-                <strong class="list-subcategory-title" id="ttListSubcategoryTitle">Category</strong>
-              </div>
-              <nav class="list-subcategory-tabs" id="ttListSubcategoryTabs" aria-label="하위 카테고리 탭"></nav>
-            </section>
-          </section>
-          <section class="list-grid">
-            <s_list_rep>
-              <article class="card list-card">
-                <a class="card-link" href="[##_list_rep_link_##]">
-                  <div class="card-thumb">
-                    <s_list_rep_thumbnail>
-                      <img src="[##_list_rep_thumbnail_##]" loading="lazy" alt="[##_list_rep_title_text_##]"/>
-                    </s_list_rep_thumbnail>
-                    <s_not_list_rep_thumbnail>
-                      <div class="card-thumb-fallback">No Image</div>
-                    </s_not_list_rep_thumbnail>
-                    <span class="badge badge-mint">[##_list_rep_category_##]</span>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-title">[##_list_rep_title_##]</div>
-                    <div class="card-meta">
-                      <span class="card-date">[##_list_rep_regdate_##]</span>
-                      <span class="comment-count"><i class="fa-regular fa-comment-dots"></i> [##_rctps_rep_rp_cnt_##]</span>
+                <div class="list-search-panel" id="ttListSearchPanel" aria-hidden="true">
+                  <div class="list-search" id="ttListSearch">
+                    <div class="list-search-box">
+                      <input
+                        id="ttListSearchInput"
+                        class="list-search-input"
+                        type="search"
+                        placeholder="제목/카테고리 검색"
+                        autocomplete="off"
+                        enterkeyhint="search"
+                      />
+                      <button type="button" class="list-search-clear" id="ttListSearchClear" aria-label="검색어 지우기">지우기</button>
                     </div>
                   </div>
-                </a>
-              </article>
-            </s_list_rep>
+                </div>
+                <div class="list-view-toggle" role="group" aria-label="보기 방식">
+                  <button type="button" class="view-btn is-active" data-view="list" aria-pressed="true" title="리스트">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                      <path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"/>
+                    </svg>
+                  </button>
+                  <button type="button" class="view-btn" data-view="card" aria-pressed="false" title="카드">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                      <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <p class="list-search-meta" id="ttListSearchMeta" aria-live="polite"></p>
           </section>
-          <s_paging>
-            <div class="area_paging">
-              <a [##_prev_page_##] class="link_page link_prev [##_no_more_prev_##]">
+
+          <div class="list-layout">
+            <aside class="list-sidebar" aria-label="카테고리 트리">
+              <nav class="list-category-tabs" id="ttListCategoryTabs" aria-label="카테고리 필터">
+                <a class="list-category-tab" href="[##_blog_link_##]category" data-category-slug="">All</a>
+                <a class="list-category-tab" href="[##_blog_link_##]category/computerscience" data-category-slug="computerscience">ComputerScience</a>
+                <a class="list-category-tab" href="[##_blog_link_##]category/development" data-category-slug="development">Development</a>
+                <a class="list-category-tab" href="[##_blog_link_##]category/engineering" data-category-slug="engineering">Engineering</a>
+                <a class="list-category-tab" href="[##_blog_link_##]category/troubleshooting" data-category-slug="troubleshooting">TroubleShooting</a>
+              </nav>
+            </aside>
+
+            <section class="list-content">
+              <section class="list-grid">
+                <s_list_rep>
+                  <article class="card list-card">
+                    <a class="card-link" href="[##_list_rep_link_##]">
+                      <div class="card-thumb">
+                        <s_list_rep_thumbnail>
+                          <img src="[##_list_rep_thumbnail_##]" loading="lazy" alt="[##_list_rep_title_text_##]"/>
+                        </s_list_rep_thumbnail>
+                        <s_not_list_rep_thumbnail>
+                          <div class="card-thumb-fallback">No Image</div>
+                        </s_not_list_rep_thumbnail>
+                        <span class="badge badge-mint">[##_list_rep_category_##]</span>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-title">[##_list_rep_title_##]</div>
+                        <div class="card-meta">
+                          <span class="card-date">[##_list_rep_regdate_##]</span>
+                          <span class="comment-count"><i class="fa-regular fa-comment-dots"></i> [##_rctps_rep_rp_cnt_##]</span>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                </s_list_rep>
+              </section>
+              <s_paging>
+                <div class="area_paging">
+                  <a [##_prev_page_##] class="link_page link_prev [##_no_more_prev_##]">
                                     <span class="icon-Keyboard-Arrow---Left">
                                         <span class="screen_out">이전</span>
                                     </span>
-              </a>
-              <div class="paging_num thema_apply">
-                <s_paging_rep>
-                  <a [##_paging_rep_link_##] class="link_num">[##_paging_rep_link_num_##]</a>
-                </s_paging_rep>
-              </div>
-              <a [##_next_page_##] class="link_page link_next [##_no_more_next_##]">
+                  </a>
+                  <div class="paging_num thema_apply">
+                    <s_paging_rep>
+                      <a [##_paging_rep_link_##] class="link_num">[##_paging_rep_link_num_##]</a>
+                    </s_paging_rep>
+                  </div>
+                  <a [##_next_page_##] class="link_page link_next [##_no_more_next_##]">
                                     <span class="icon-Keyboard-Arrow---Right">
                                         <span class="screen_out">다음</span>
                                     </span>
-              </a>
-            </div>
-          </s_paging>
+                  </a>
+                </div>
+              </s_paging>
+            </section>
+          </div>
         </div>
         <div class="mid-ad-slot" id="ttListMidAdSlot">
           <div id="ttListMidAdSlotMobile" class="mobile-only" aria-label="목록 하단 광고 (모바일)"></div>
@@ -787,10 +810,12 @@
                 Guest
     =============================== -->
     <s_guest>
-      <section class="tt-guestbook">
-        <div class="tt-guestbook__panel">
-          <div class="area_common">
-            [##_guestbook_group_##]
+      <section class="tt-guestbook" id="pageGuestbook" aria-label="Guestbook">
+        <div class="page-wrap">
+          <div class="tt-guestbook__panel">
+            <div class="area_common">
+              [##_guestbook_group_##]
+            </div>
           </div>
         </div>
       </section>
