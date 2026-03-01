@@ -14,6 +14,9 @@
   - `Cannot read properties of null` (DOM selector 대상 누락)
 - 홈 `rp4` 카드 시각 확인:
   - 카드 배경/테두리/그림자가 보이지 않고, 아이콘(`.rp4-icon`)만 3D 형태로 렌더링되는지 확인
+- 홈 `rp4` 랜덤 이동 수집 확인:
+  - 개발자도구 Network에서 `/category/{root}/rss` 및 `/category/{root}/{sub}/rss` 요청이 함께 발생하는지 확인
+  - 루트 기준은 `computerscience`, `development`, `engineering`, `troubleshooting` 4개만 사용하는지 확인
 - 홈 최신글 렌더링:
   - `#ttLatestTrack .latest-slide`가 비어 있으면 `Recent Posts`에 fallback 문구가 표시되는지 확인
 - 링크 동작:
@@ -30,6 +33,9 @@
 - 증상: 홈에 예전 장식 섹션이 다시 노출됨
   - 원인: `#pageHome` 내부 클래스명 변경으로 CSS 숨김 selector 미스매치
   - 조치: `src/style/style.css`의 홈 숨김 규칙 selector를 실제 DOM 기준으로 갱신
+- 증상: `Engineering`/`TroubleShooting` 랜덤 카드에서 글이 잘 수집되지 않음
+  - 원인: 카테고리 슬러그가 `engineering`/`troubleshooting`와 `enginnering`/`trubleshooting` 중 한쪽만 존재
+  - 조치: `src/function/random-post-box.js`의 `ROOT_CATEGORIES[*].paths`에 두 경로가 모두 포함됐는지 확인
 
 ## 복구 절차
 

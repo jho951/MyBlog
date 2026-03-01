@@ -24,18 +24,6 @@
             });
         }
 
-        if (typeof window.initPagesNavSlider === "function") {
-            window.initPagesNavSlider({
-                viewportId: "ttPagesViewport",
-                trackId: "ttPagesTrack",
-                menuId: "ttHiddenMenuPages",
-                maxItems: 20,
-                pxPerFrame: 0,
-                pauseOnHover: true,
-                drag: true
-            });
-        }
-
         if (typeof window.initGuestbookStickAnim === "function") {
             window.initGuestbookStickAnim({ rootSelector: ".tt-guestbook .area_common", duration: 560 });
             window.initGuestbookStickAnim({

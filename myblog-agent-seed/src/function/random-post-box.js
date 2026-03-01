@@ -8,10 +8,30 @@
     "use strict";
 
     var ROOT_CATEGORIES = [
-        { key: "computerscience", label: "ComputerScience", path: "computerscience" },
-        { key: "development", label: "Development", path: "development" },
-        { key: "engineering", label: "Engineering", path: "enginnering" },
-        { key: "troubleshooting", label: "Trouble Shooting", path: "trubleshooting" }
+        {
+            key: "computerscience",
+            label: "ComputerScience",
+            paths: ["computerscience"],
+            subcategories: ["datastructure", "algorithm", "network", "os"]
+        },
+        {
+            key: "development",
+            label: "Development",
+            paths: ["development"],
+            subcategories: ["language", "framework", "infra", "database", "tool"]
+        },
+        {
+            key: "engineering",
+            label: "Engineering",
+            paths: ["engineering", "enginnering"],
+            subcategories: ["designpattern", "test"]
+        },
+        {
+            key: "troubleshooting",
+            label: "Trouble Shooting",
+            paths: ["troubleshooting", "trubleshooting"],
+            subcategories: ["retrospective", "performance"]
+        }
     ];
 
     function onReady(fn) {
@@ -44,6 +64,18 @@
             .split("/")
             .map(function (seg) { return encodeURIComponent(seg); })
             .join("/");
+    }
+
+    function uniqueNonEmpty(arr) {
+        var seen = {};
+        var out = [];
+        for (var i = 0; i < (arr || []).length; i++) {
+            var v = arr[i];
+            if (!v || seen[v]) continue;
+            seen[v] = 1;
+            out.push(v);
+        }
+        return out;
     }
 
     function getRootByAny(cat) {
@@ -83,6 +115,24 @@
                 return res.text();
             })
             .then(parseRss);
+    }
+
+    function fetchLinksFromMultipleRss(rssPaths) {
+        var paths = uniqueNonEmpty(rssPaths);
+        if (!paths.length) return Promise.resolve([]);
+
+        var jobs = [];
+        for (var i = 0; i < paths.length; i++) {
+            jobs.push(fetchLinksFromRss(paths[i]).catch(function () { return []; }));
+        }
+
+        return Promise.all(jobs).then(function (results) {
+            var merged = [];
+            for (var j = 0; j < results.length; j++) {
+                merged = mergeUnique(merged, results[j] || []);
+            }
+            return merged;
+        });
     }
 
     function parseLinksFromListHtml(htmlText) {
@@ -145,6 +195,34 @@
         return out;
     }
 
+    function buildRootListCandidates(root, existingList) {
+        var out = [];
+        if (existingList) out.push(existingList);
+        if (!root) return uniqueNonEmpty(out);
+
+        for (var i = 0; i < root.paths.length; i++) {
+            out.push("/category/" + encodeCategoryPath(root.paths[i]));
+        }
+        return uniqueNonEmpty(out);
+    }
+
+    function buildRootRssCandidates(root, existingRss) {
+        var out = [];
+        if (existingRss) out.push(existingRss);
+        if (!root) return uniqueNonEmpty(out);
+
+        for (var i = 0; i < root.paths.length; i++) {
+            var rootBase = "/category/" + encodeCategoryPath(root.paths[i]);
+            out.push(rootBase + "/rss");
+
+            for (var j = 0; j < root.subcategories.length; j++) {
+                var subBase = rootBase + "/" + encodeCategoryPath(root.subcategories[j]);
+                out.push(subBase + "/rss");
+            }
+        }
+        return uniqueNonEmpty(out);
+    }
+
     function cacheKey(cat) {
         return "tt:rndcat:v2:" + cat;
     }
@@ -170,7 +248,7 @@
             var cfg = ROOT_CATEGORIES[ci];
             if (!cfg) continue;
 
-            var path = "/category/" + encodeCategoryPath(cfg.path);
+            var path = "/category/" + encodeCategoryPath(cfg.paths[0]);
             var existingList = cards[ci].getAttribute("data-list") || "";
             var existingRss = cards[ci].getAttribute("data-rss") || "";
             cards[ci].setAttribute("data-cat", cfg.label);
@@ -191,12 +269,9 @@
             var cat = root ? root.label : rawCat;
             var list = card.getAttribute("data-list") || "";
             var rss = card.getAttribute("data-rss") || "";
-
-            if (root) {
-                var canonicalPath = "/category/" + encodeCategoryPath(root.path);
-                if (!list) list = canonicalPath;
-                if (!rss) rss = canonicalPath + "/rss";
-            }
+            var listCandidates = buildRootListCandidates(root, list);
+            var rssCandidates = buildRootRssCandidates(root, rss);
+            if (!list && listCandidates.length) list = listCandidates[0];
 
             // 1) cache
             var cached = getCache(cat);
@@ -206,25 +281,32 @@
             }
 
             // 2) RSS 먼저
-            var p = Promise.resolve([]);
-            if (rss) {
-                p = fetchLinksFromRss(rss).catch(function () { return []; });
-            }
+            var p = fetchLinksFromMultipleRss(rssCandidates).catch(function () { return []; });
 
             p.then(function (rssLinks) {
                 // 3) 목록 페이지로 보강
                 if (!list) return rssLinks;
 
-                var chain = fetchLinksFromListPage(list).catch(function () { return []; });
+                var chain = Promise.resolve([]);
+                for (var base = 0; base < listCandidates.length; base++) {
+                    (function (listBase) {
+                        chain = chain.then(function (accAll) {
+                            var pageChain = fetchLinksFromListPage(listBase).catch(function () { return []; });
+                            for (var page = 2; page <= MAX_PAGES; page++) {
+                                (function (pg) {
+                                    pageChain = pageChain.then(function (acc) {
+                                        return fetchLinksFromListPage(buildPagedUrl(listBase, pg))
+                                            .then(function (next) { return mergeUnique(acc, next); })
+                                            .catch(function () { return acc; });
+                                    });
+                                })(page);
+                            }
 
-                for (var page = 2; page <= MAX_PAGES; page++) {
-                    (function (pg) {
-                        chain = chain.then(function (acc) {
-                            return fetchLinksFromListPage(buildPagedUrl(list, pg))
-                                .then(function (next) { return mergeUnique(acc, next); })
-                                .catch(function () { return acc; });
+                            return pageChain.then(function (links) {
+                                return mergeUnique(accAll, links);
+                            });
                         });
-                    })(page);
+                    })(listCandidates[base]);
                 }
 
                 return chain.then(function (listLinks) {

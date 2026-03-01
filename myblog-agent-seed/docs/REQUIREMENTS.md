@@ -90,3 +90,13 @@
   - `catStackItem--eng` 배너는 우측 정렬로 인한 텍스트 잘림을 방지하기 위해 좌측 정렬을 유지한다.
   - 헤더 확장 GNB(`menu-footer`)는 `About → TechWrite → GuestBook → GitHub` 링크를 우선 노출하되, 티스토리 기본 동작인 `구독하기`, `로그인/로그아웃` 블록을 함께 유지한다.
   - 헤더 확장 GNB에서 카테고리 트리 목록은 숨기고, 4개 링크(`About/TechWrite/GuestBook/GitHub`)는 반응형 전 구간에서 좌측 정렬로 노출한다.
+  - 홈 카테고리 섹션은 모바일/태블릿/PC 모두 루트 카테고리만 노출하도록 통일하고, 모바일/태블릿에서는 세로 스택 레이아웃을 유지한다. (2026-02-28 반영)
+  - 홈 최신글(`latest`) 카드 디자인은 `latest--pagesNav` 카드 스타일과 통일하되, 최신글 섹션의 폭/배경 레이아웃은 기존 배치를 유지한다. (2026-02-28 반영)
+  - 홈 `ttPagesNav` 페이지 카드 섹션은 제거하고, 관련 초기화(`initPagesNavSlider`) 및 스크립트 로드는 비활성화한다. (2026-02-28 반영)
+  - `main.html` 하단 인라인 카테고리 탭 스크립트는 외부 JS 파일로 분리해 로드한다. (2026-02-28 반영)
+  - 홈 `subscribePromo` 영역은 모바일 우선 반응형(모바일 1열/태블릿+ 2열)으로 재설계하고, CTA 버튼 크기 및 구독 카드 가독성을 개선한다. (2026-02-28 반영)
+  - 모바일/태블릿(`<=1024px`)에서는 `subscribePromo`의 `spMock`를 숨기고, `구독하기` CTA 버튼을 중앙 정렬한다. (2026-02-28 반영)
+  - 태블릿(768~1024px)에서는 홈 `cat` 영역의 하위 카테고리(`catSubGrid`, `catStackSubs`)를 숨기고 루트 카테고리만 노출한다. (2026-02-28 반영)
+  - 태블릿(768~1024px)에서는 `catHubStage` 내부 하위 카테고리 렌더링(`catSubGrid`, `catHubSubWrap`, `catSubCard` 계열)을 비활성화한다. (2026-02-28 반영)
+  - CSS 반응형 브레이크포인트는 모바일 퍼스트 기준 `min-width: 768px`, `min-width: 1024px`만 사용하도록 통일하고, `max-width` 및 `1025px` 구간을 제거한다. (2026-02-28 반영)
+  - 홈 `random-post-box`는 루트 4개 카테고리(`computerscience`, `development`, `engineering`, `troubleshooting`)를 기준으로 RSS를 수집하며, 각 루트의 하위 카테고리 RSS까지 병합해 랜덤 글 후보를 구성한다. (2026-03-01 반영)
