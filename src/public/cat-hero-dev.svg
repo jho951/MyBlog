@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Development category cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef7f1"/>
+      <stop offset="55%" stop-color="#f7efdf"/>
+      <stop offset="100%" stop-color="#efe0c2"/>
+    </linearGradient>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5f9a7f" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#bfe0cc" stop-opacity=".16"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#8f734f" stroke-opacity=".08" stroke-width="1"/>
+    </pattern>
+    <filter id="noise" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .06 0"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)" opacity=".7"/>
+  <rect width="1600" height="900" fill="url(#wash)"/>
+  <rect width="1600" height="900" fill="#fff" filter="url(#noise)" opacity=".55"/>
+
+  <circle cx="1360" cy="190" r="220" fill="#5f9a7f" opacity=".14"/>
+  <circle cx="260" cy="720" r="260" fill="#bfe0cc" opacity=".12"/>
+  <path d="M90 130 C 260 40, 560 40, 760 150" fill="none" stroke="#8f734f" stroke-opacity=".22" stroke-width="2" stroke-dasharray="6 10"/>
+  <path d="M860 680 C 1030 560, 1280 570, 1510 730" fill="none" stroke="#8f734f" stroke-opacity=".18" stroke-width="2" stroke-dasharray="5 11"/>
+
+  <g transform="translate(118,112) rotate(-1.6)">
+    <rect x="0" y="0" width="1080" height="650" rx="26" fill="#fffaf0" fill-opacity=".93" stroke="#c9ad86" stroke-opacity=".48"/>
+    <rect x="18" y="18" width="1044" height="614" rx="18" fill="none" stroke="#af8f64" stroke-opacity=".22" stroke-dasharray="5 7"/>
+    <rect x="36" y="34" width="16" height="580" rx="8" fill="#d8c3a2" opacity=".82"/>
+    <g fill="#9f7d52" opacity=".55">
+      <circle cx="44" cy="72" r="2.2"/><circle cx="44" cy="102" r="2.2"/><circle cx="44" cy="132" r="2.2"/>
+      <circle cx="44" cy="162" r="2.2"/><circle cx="44" cy="192" r="2.2"/><circle cx="44" cy="222" r="2.2"/>
+      <circle cx="44" cy="252" r="2.2"/><circle cx="44" cy="282" r="2.2"/><circle cx="44" cy="312" r="2.2"/>
+      <circle cx="44" cy="342" r="2.2"/><circle cx="44" cy="372" r="2.2"/><circle cx="44" cy="402" r="2.2"/>
+    </g>
+
+    <rect x="78" y="74" width="186" height="36" rx="18" fill="#5f9a7f" fill-opacity=".16" stroke="#5f9a7f" stroke-opacity=".3"/>
+    <text x="100" y="97" font-size="16" font-family="Arial,sans-serif" letter-spacing="1.8" fill="#6f5839">ROOT CATEGORY</text>
+
+    <text x="78" y="206" font-size="66" font-weight="700" font-family="Georgia, serif" fill="#2d2216">Development</text>
+    <text x="80" y="252" font-size="23" font-family="Arial,sans-serif" fill="#6f5839">Craft index board · tone-on-tone category stage</text>
+
+    <path d="M80 300 H620" stroke="#a28359" stroke-opacity=".22" stroke-width="2"/>
+    <path d="M80 338 H980" stroke="#a28359" stroke-opacity=".11" stroke-width="1"/>
+    <path d="M80 372 H930" stroke="#a28359" stroke-opacity=".11" stroke-width="1"/>
+    <path d="M80 406 H995" stroke="#a28359" stroke-opacity=".11" stroke-width="1"/>
+    <path d="M80 440 H860" stroke="#a28359" stroke-opacity=".11" stroke-width="1"/>
+
+    <g transform="translate(786,70) rotate(2)">
+      <rect x="0" y="0" width="224" height="126" rx="14" fill="#f4ead4" stroke="#c9ad86" stroke-opacity=".56"/>
+      <rect x="14" y="14" width="196" height="98" rx="10" fill="none" stroke="#b08f63" stroke-opacity=".28" stroke-dasharray="4 5"/>
+      <text x="24" y="44" font-size="14" font-family="Arial,sans-serif" letter-spacing="1.4" fill="#7c6342">STAMP</text>
+      <text x="24" y="78" font-size="26" font-weight="700" font-family="Georgia, serif" fill="#2e2317">DV-02</text>
+      <text x="24" y="99" font-size="12" font-family="Arial,sans-serif" fill="#7c6342">category board</text>
+    </g>
+
+    <g transform="translate(820,450)">
+      <rect x="0" y="0" width="190" height="68" rx="34" fill="#bfe0cc" fill-opacity=".16" stroke="#bfe0cc" stroke-opacity=".34"/>
+      <text x="22" y="42" font-size="23" font-weight="700" font-family="Arial,sans-serif" letter-spacing="2" fill="#382b1d">INDEX</text>
+    </g>
+  </g>
+</svg>
